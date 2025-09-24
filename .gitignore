@@ -1,0 +1,8 @@
+
+# Ignore environment variables
+.env
+
+# Cloudflare Workers local cache
+/.wrangler/
+
+wrangler.toml
