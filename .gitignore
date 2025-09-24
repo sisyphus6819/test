@@ -4,5 +4,3 @@
 
 # Cloudflare Workers local cache
 /.wrangler/
-
-wrangler.toml
