@@ -27,7 +27,7 @@ bookings.post("/available-therapists", async (c) => {
     //  Get all therapists matching specialization + working hours
     const therapists = await prisma.therapist.findMany({
       where: {
-        // specialization: specialization ? { equals: specialization } : undefined,  => make specialization mandatory then use thus to filyer out the doctors based on specialization
+        // specialization: specialization ? { equals: specialization } : undefined,  => make speciallization mandatory then use thus to filyer out the doctors based on specialization
         workStart: { lte: requestedStart },
         workEnd: { gte: requestedEnd },
       },
@@ -39,7 +39,7 @@ bookings.post("/available-therapists", async (c) => {
         if (!t.workStart || !t.workEnd) return false;
       const conflict = t.sessions.some(
         (s) =>
-          requestedStart < s.endTime && requestedEnd > s.startTime // cleaner overlap check
+          requestedStart < s.endTime && requestedEnd > s.startTime 
       )
       return !conflict
     })
